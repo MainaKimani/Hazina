@@ -18,7 +18,7 @@ public class TransactionControllerIntegrationTest {
     @Test
     public void testTransactions() throws Exception{
         mockMvc.perform(
-                        get("/api/v1/transactions/199578"))
+                        get("/api/transactions/199578"))
                 .andExpect(status().isOk());
     }
     @Autowired

@@ -1,20 +1,52 @@
 package app.hazina.service;
 
-/*---service.TransactionServiceTest.java
- ----Unit testing TransactionService using junit
-*/
-import org.junit.jupiter.api.Test;
+import app.hazina.entity.Transaction;
+import app.hazina.repository.TransactionRepository;
 import app.hazina.service.TransactionService;
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+
+import java.util.Date;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
-public class TransactionServiceTest {
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.when;
 
-    //Creation of TransactionService object
-    TransactionService transactionService = new TransactionService();
 
-    //Testing the numbers need to match with what you expect in the test class
+class TransactionServiceTest {
+
+    @Mock
+    private TransactionRepository transactionRepository;
+
+    @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this);
+    }
+
     @Test
     public void testTransactionCount() {
-        assertEquals(1, transactionService.findAllByAccountNumber(199578).size());
+        when(transactionRepository.findAllByAccountNumber(anyInt()))
+                .thenReturn(transactions());
+
+        var transactionService = new TransactionService(transactionRepository);
+        assertEquals(1, transactionService.findAllByAccountNumber(1234567).size());
+    }
+
+    private List<Transaction> transactions() {
+        return List.of(
+                Transaction
+                        .builder()
+                        .type("credit")
+                        .date(new Date())
+                        .accountNumber(1234567)
+                        .currency("Ksh. ")
+                        .amount(1000.00)
+                        .merchantName("Equity")
+                        .merchantLogo("")
+                        .build()
+        );
     }
 }
