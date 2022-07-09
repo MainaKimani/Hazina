@@ -10,17 +10,17 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-
 @SpringBootTest(classes = {HazinaApplication.class})
-@AutoConfigureMockMvc // Enable and configure auto-configuration of MockMvc
-public class TransactionControllerIntegrationTest {
+@AutoConfigureMockMvc
+class TransactionControllerIntegrationTest {
 
     @Test
-    public void testTransactions() throws Exception{
+    public void testTransactions() throws Exception {
         mockMvc.perform(
-                        get("/api/transactions/199578"))
+                        get("/api/transactions/12345678"))
                 .andExpect(status().isOk());
     }
+
     @Autowired
     private MockMvc mockMvc;
 }
