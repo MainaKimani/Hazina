@@ -18,6 +18,6 @@ public class TransactionServiceTest {
 
     @Test
     public void testTransactionCount() {
-        assertEquals(2, transactionService.findAllByAccountNumber(12345678).size());
+        assertEquals(2, transactionService.findAllByAccountNumber(123456).size());
     }
 }

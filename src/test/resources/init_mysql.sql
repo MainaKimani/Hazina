@@ -1,4 +1,4 @@
-create table transactions (
+create table transactionss (
     id bigint not null,
     account_number integer,
     amount double precision,
@@ -15,3 +15,4 @@ VALUES (1, 'debit', now(), '123456', 'Ksh', 1500.00, 'Naivas Ltd.', '');
 
 INSERT INTO transactions (id, type, date, account_number, currency, amount, merchant_name, merchant_logo)
 VALUES (2, 'debit', now(), '123456', 'Ksh', 5000.00, 'Nairobi Tech Inc', '');
+
