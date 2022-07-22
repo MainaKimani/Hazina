@@ -1,7 +1,7 @@
 # Hazina
 Hazina is a Swahili word meaning treasures or savings.
 
-This project aims at building an open banking software product that will first be built using Java and later on run on android devices.
+This project aims at building an open banking API that will first be built using Java to share json data to be consumed by a fontend analytic.
 
 This product will be called Hazina.
 
