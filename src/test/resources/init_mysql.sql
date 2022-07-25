@@ -1,4 +1,4 @@
-create table transactionss (
+create table transactions (
     id bigint not null,
     account_number integer,
     amount double precision,
